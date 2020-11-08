@@ -123,7 +123,9 @@ public class racoonMovement : MonoBehaviour
             c.enabled = false;
         }
         heldItem.GetComponent<Rigidbody>().useGravity = false;
+        heldItem.GetComponent<Rigidbody>().isKinematic = true;
         heldItem.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        heldItem.transform.rotation = Quaternion.identity;
         heldItem.transform.position = head.transform.position;
         heldItem.GetComponent<Outline>().eraseRenderer = true;
         heldItem.transform.parent = head.transform;
@@ -137,6 +139,7 @@ public class racoonMovement : MonoBehaviour
             c.enabled = true;
         }
         heldItem.GetComponent<Rigidbody>().useGravity = true;
+        heldItem.GetComponent<Rigidbody>().isKinematic = false;
         heldItem.GetComponent<Rigidbody>().velocity = Vector3.zero;
         heldItem.GetComponent<Outline>().eraseRenderer = false;
         heldItem.transform.parent = null;
