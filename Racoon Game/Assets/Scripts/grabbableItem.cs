@@ -10,12 +10,8 @@ public class grabbableItem : MonoBehaviour
     public Vector3 holdScale = new Vector3 (.0005f, .0005f, .0005f);
     void Start()
     {
+        gameObject.tag = "Grabbable";
         outline = this.gameObject.GetComponent<Outline>();
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
     //Highlight when player is near
     private void OnTriggerEnter(Collider other)

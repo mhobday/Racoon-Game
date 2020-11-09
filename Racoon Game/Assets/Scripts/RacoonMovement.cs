@@ -37,6 +37,7 @@ public class racoonMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.tag = "Player";
         rigidbody = this.gameObject.GetComponent<Rigidbody>();
         animator = this.gameObject.GetComponent<Animator>();
         animation = this.gameObject.GetComponent<Animation>();
