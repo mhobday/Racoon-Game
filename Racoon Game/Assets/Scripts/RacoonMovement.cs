@@ -9,6 +9,12 @@ using UnityEngine.Video;
 public class racoonMovement : MonoBehaviour
 {
     public float moveSpeed;
+    //Assumed distance from raccoon to ground for checking if you can jump
+    public float distanceToGround = 1;
+    //Height of the jump
+    public float jumpHeight = 10;
+    //Delay before jump
+    public float jumpDelay = .5f;
     [SerializeField]
     private Rigidbody rigidbody;
     [SerializeField]
@@ -68,7 +74,10 @@ public class racoonMovement : MonoBehaviour
         //Walk animations
         if(Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
-            animation.Play("Walk");
+            if(!animation.IsPlaying("Jump") || !animation.IsPlaying("Munch"))
+            {
+                animation.Play("Walk");
+            }
             //Sets raccoon direction to the way he's walking gradually
             Vector3 temp = transform.rotation.eulerAngles;
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15F);
@@ -78,6 +87,15 @@ public class racoonMovement : MonoBehaviour
         {
             animation.Stop();
         }
+        //Jump
+        //Delayed jump is an option but it feels a bit janky
+        if (Input.GetButtonDown("Jump") && IsGrounded())
+        {
+            Invoke("Jump", jumpDelay);
+            animation.Stop();
+            animation.Play("Jump");
+        }
+        //Grab
         //if there is something to grab and not holding something
         if(currentGrabbables.Count > 0 && !holdingItem && Input.GetKeyDown(KeyCode.Mouse0))
         {
@@ -116,7 +134,7 @@ public class racoonMovement : MonoBehaviour
 
     void GrabObject(List<GameObject> currentGrabbables)
     {
-        heldItem = FindClosestObject(currentGrabbables);
+        heldItem = FindClosestObjectTo(currentGrabbables, head.transform.position);
         currentGrabbables.Remove(heldItem);
         foreach (Collider c in heldItem.GetComponents<Collider>())
         {
@@ -147,14 +165,14 @@ public class racoonMovement : MonoBehaviour
         holdingItem = false;
     }
 
-    GameObject FindClosestObject(List<GameObject> objects)
+    GameObject FindClosestObjectTo(List<GameObject> objects, Vector3 location)
     {
         GameObject closest = null;
         float minDistance = Mathf.Infinity;
         Vector3 currentPosition = this.gameObject.transform.position;
         foreach(GameObject o in objects)
         {
-            float distance = Vector3.Distance(currentPosition, o.transform.position);
+            float distance = Vector3.Distance(location, o.transform.position);
             if (distance < minDistance)
             {
                 minDistance = distance;
@@ -162,5 +180,14 @@ public class racoonMovement : MonoBehaviour
             }
         }
         return closest;
+    }
+
+    bool IsGrounded()
+    {
+        return Physics.Raycast(new Vector3(transform.position.x, transform.position.y + .1f, transform.position.z), Vector3.down, distanceToGround + 0.2f);
+    }
+    void Jump()
+    {
+        rigidbody.velocity = new Vector3(rigidbody.velocity.x, rigidbody.velocity.y + jumpHeight, rigidbody.velocity.z);
     }
 }
