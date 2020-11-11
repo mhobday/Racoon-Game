@@ -12,14 +12,10 @@ public class sideToSide : MonoBehaviour
     void FixedUpdate()
     {
         if (right && positionTracker < distance) {
-            Vector3 temp = this.gameObject.transform.position;
-            temp.x += 1.0f;
-            this.gameObject.transform.position = temp;
+            this.gameObject.transform.position += Vector3.right;
             positionTracker++;
         } else if (!right && positionTracker < distance) {
-            Vector3 temp = this.gameObject.transform.position;
-            temp.x -= 1.0f;
-            this.gameObject.transform.position = temp;
+            this.gameObject.transform.position += Vector3.left;
             positionTracker++;
         } else {
             right = !right;
