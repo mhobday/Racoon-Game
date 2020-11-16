@@ -28,9 +28,9 @@ public class racoonMovement : MonoBehaviour
     private float idleTimerMax = 3;
     private float idleTimer = 3;
     //True if can grab something at the moment
-    private bool holdingItem = false;
+    public bool holdingItem = false;
     //Current held item
-    private GameObject heldItem;
+    public GameObject heldItem;
     //Location of the Raccoon's head
     private GameObject head;
 
