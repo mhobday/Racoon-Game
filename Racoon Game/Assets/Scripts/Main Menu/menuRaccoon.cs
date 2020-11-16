@@ -26,7 +26,16 @@ public class menuRaccoon : MonoBehaviour
         peekTimer -= Time.deltaTime;
         if(peekTimer <= 0 && !animation.isPlaying)
         {
-            target = new Vector3(-3, -1, 0);
+            if(Random.Range(0, 2) == 0)
+            {
+                target = new Vector3(-3, -1, 0);
+                gameObject.transform.rotation = Quaternion.Euler(gameObject.transform.rotation.x, 270, gameObject.transform.rotation.z);
+            }
+            else
+            {
+                target = new Vector3(3, -1, 0);
+                gameObject.transform.rotation = Quaternion.Euler(gameObject.transform.rotation.x, 90, gameObject.transform.rotation.z);
+            }
             animation.Play("Idle");
             Invoke("ResetAnimation", animLength);
         }

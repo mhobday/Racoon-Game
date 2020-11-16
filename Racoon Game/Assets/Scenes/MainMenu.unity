@@ -560,10 +560,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 691d2db11f9383b4fa98e5f32848f907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  peekTimerMax: 10
-  peekTimer: 10
+  peekTimerMax: 5
+  peekSpeed: 0.01
   animLength: 1
-  target: {x: 0, y: 0, z: 0}
 --- !u!1 &1187153661
 GameObject:
   m_ObjectHideFlags: 0
