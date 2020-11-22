@@ -22,7 +22,16 @@ public class SellItem : MonoBehaviour
 
     private void Sell()
     {
+        if(gameObject.GetComponent<racoonMovement>().heldItem.GetComponent<ItemCost>() != null)
+        {
+            SaveLoad.currentData.dollars += gameObject.GetComponent<racoonMovement>().heldItem.GetComponent<ItemCost>().cost;
+        }
+        else
+        {
+            SaveLoad.currentData.dollars += 10;
+        }
         Destroy(gameObject.GetComponent<racoonMovement>().heldItem);
         gameObject.GetComponent<racoonMovement>().holdingItem = false;
+        MenuLoader.GoToMenu(MenuName.Main);
     }
 }

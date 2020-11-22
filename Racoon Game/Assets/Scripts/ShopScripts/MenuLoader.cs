@@ -10,15 +10,15 @@ public static class MenuLoader
         switch (name)
         {
             case MenuName.Main:
-                SceneManager.LoadScene("TestMain");
+                SceneManager.LoadScene("MainMenu");
                 break;
 
             case MenuName.Shop:
-                SceneManager.LoadScene("Gabe's scene");
+                SceneManager.LoadScene("ShopScene");
                 break;
 
             case MenuName.Raccoonissance:
-                SceneManager.LoadScene("TestSteal");
+                SceneManager.LoadScene("SampleHouseScene");
                 break;    
         }
     }
