@@ -53,7 +53,7 @@ public class racoonMovement : MonoBehaviour
         rigidbody.velocity = movement;
         //Runs raccoon animations
         Animate(movement);
-        
+
     }
 
     void Animate(Vector3 movement)
