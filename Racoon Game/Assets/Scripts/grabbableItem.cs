@@ -6,6 +6,8 @@ using UnityEngine;
 public class grabbableItem : MonoBehaviour
 {
     public Outline outline;
+
+    public int cost;
     //Scale the object will be in xyz when grabbed
     public Vector3 holdScale = new Vector3 (.0005f, .0005f, .0005f);
     void Start()
