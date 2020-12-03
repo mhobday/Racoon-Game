@@ -11,11 +11,13 @@ public class shopItem
     public string name;
 
     public int cost;
+    public ItemName item;
 
-    public shopItem (string name, int cost)
+    public shopItem (string name, int cost, ItemName item)
     {
         this.name = name;
         this.cost = cost;
+        this.item = item;
     }
 }
 [Serializable]
@@ -25,9 +27,6 @@ public class DataPersistance
     public int dollars;
 
     public List<shopItem> itemsForSale = new List<shopItem>();
-
-    public List<String> itemsAcquired = new List<String>();
-
 
     public void removeMember(String name)
     {
@@ -45,11 +44,24 @@ public class DataPersistance
         itemsForSale = new List<shopItem>();
     }
 
-    public void SetTest()
+    public void SetData()
     {
-        itemsForSale.Add(new shopItem("a", 1));
-        itemsForSale.Add(new shopItem("b", 2));
-        itemsForSale.Add(new shopItem("c", 3));
+        itemsForSale.Add(new shopItem("Distraction Garbage", 10, ItemName.Garbage));
+        itemsForSale.Add(new shopItem("Newspaper Disguise", 20, ItemName.Newspaper));
+        itemsForSale.Add(new shopItem("Decoy Raccoon", 50, ItemName.Decoy));
+        itemsForSale.Add(new shopItem("Dog Treat", 20, ItemName.Treat));
+        itemsForSale.Add(new shopItem("Garage Door Clicker", 30, ItemName.Clicker));
+        itemsForSale.Add(new shopItem("House Keys", 30, ItemName.Keys));
+        itemsForSale.Add(new shopItem("Brick", 20, ItemName.Brick));
+        itemsForSale.Add(new shopItem("Sleep Dart", 100, ItemName.SleepDart));
+        itemsForSale.Add(new shopItem("Human Costume", 100, ItemName.Costume));
+        itemsForSale.Add(new shopItem("Hang Glider", 200, ItemName.HangGlider));
+        itemsForSale.Add(new shopItem("Spit Wads", 20, ItemName.SpitWads));
 
+    }
+
+    public void clearData()
+    {
+        itemsForSale = new List<shopItem>();
     }
 }

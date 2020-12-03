@@ -8,6 +8,8 @@ using System;
 public class SaveLoad : MonoBehaviour
 {
     public static DataPersistance currentData;
+
+
     public static void Save()
     {
         BinaryFormatter bf = new BinaryFormatter();
@@ -47,12 +49,15 @@ public class SaveLoad : MonoBehaviour
         {
             currentData = new DataPersistance();
         }
+        currentData = new DataPersistance();
+        setData();
+        
     }
 
-    public static void testData()
+    public static void setData()
     {
-        currentData.SetTest();
-        currentData.dollars = 4;
+        currentData.SetData();
+        currentData.dollars = 1000;
     }
 
     void OnApplicationQuit()

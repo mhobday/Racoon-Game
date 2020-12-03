@@ -12,9 +12,11 @@ public class ShopScript : MonoBehaviour
 
     public static int dollarAmount;
 
-    static List<shopItem> itemsForSale;
+    static List<shopItem> itemsForSale = new List<shopItem>();
 
     GameObject shop;
+
+    public static List<ItemName> itemsPurchased = new List<ItemName>();
 
     
     
@@ -52,10 +54,12 @@ public class ShopScript : MonoBehaviour
         {
             GameObject item = (GameObject) Instantiate(shopItem);
             item.transform.SetParent(shop.transform);
+            
 
             item.GetComponent<Text>().text = itemsForSale[i].name;
             item.GetComponent<ButtonScript>().name = itemsForSale[i].name;
             item.GetComponent<ButtonScript>().cost = itemsForSale[i].cost;
+            item.GetComponent<ButtonScript>().item = itemsForSale[i].item;
 
             GameObject cost = (GameObject) Instantiate(shopItem);
             cost.transform.SetParent(shop.transform);
@@ -64,6 +68,7 @@ public class ShopScript : MonoBehaviour
 
             cost.GetComponent<ButtonScript>().name = itemsForSale[i].name;
             cost.GetComponent<ButtonScript>().cost = itemsForSale[i].cost;
+            cost.GetComponent<ButtonScript>().item = itemsForSale[i].item;
 
             item.GetComponent<ButtonScript>().twin = cost;
             cost.GetComponent<ButtonScript>().twin = item;
