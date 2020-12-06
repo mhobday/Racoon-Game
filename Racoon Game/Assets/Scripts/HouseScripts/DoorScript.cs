@@ -17,7 +17,7 @@ public class DoorScript : MonoBehaviour
     {
         if(!locked)
         {
-            gameObject.transform.RotateAround();
+            
         }
     }
 
