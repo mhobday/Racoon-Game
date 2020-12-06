@@ -489,7 +489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 405803692718848391, guid: 9419ada406b365b43a33cbd73bdda640, type: 3}
       propertyPath: m_ScrollSensitivity
-      value: 16
+      value: 32
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9419ada406b365b43a33cbd73bdda640, type: 3}
