@@ -21,6 +21,8 @@ public class racoonMovement : MonoBehaviour
     private Animator animator;
     [SerializeField]
     public Animation animation;
+    [SerializeField]
+    public Transform camera;
     //All grabbable items currently within reach
     List<GameObject> currentGrabbables = new List<GameObject>();
     [SerializeField]
@@ -47,16 +49,23 @@ public class racoonMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
         Vector3 movement = new Vector3(horizontal * moveSpeed, rigidbody.velocity.y, vertical * moveSpeed);
-        rigidbody.velocity = movement;
+        float targetAngle = Mathf.Atan2(movement.x, movement.z) * Mathf.Rad2Deg + camera.eulerAngles.y;
+        Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+        if(horizontal != 0 || vertical != 0)
+        {
+            Vector3 temp = new Vector3(0f, rigidbody.velocity.y, 0f);
+            rigidbody.velocity = moveDir.normalized * moveSpeed;
+            rigidbody.velocity += temp;
+        }
         //Runs raccoon animations
-        Animate(movement);
+        Animate(moveDir);
 
     }
 
-    void Animate(Vector3 movement)
+    void Animate(Vector3 moveDir)
     {
         //Checks how long the player has been idle, if longer than idleTimerMax, plays the idle animation
         if (idleTimer <= 0)
@@ -73,7 +82,7 @@ public class racoonMovement : MonoBehaviour
             idleTimer = idleTimerMax;
         }
         //Walk animations
-        if(Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        if(Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
         {
             if(!animation.IsPlaying("Jump") || !animation.IsPlaying("Munch"))
             {
@@ -81,7 +90,7 @@ public class racoonMovement : MonoBehaviour
             }
             //Sets raccoon direction to the way he's walking gradually
             Vector3 temp = transform.rotation.eulerAngles;
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15F);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveDir), 0.15F);
             transform.rotation = Quaternion.Euler(temp.x, transform.eulerAngles.y, transform.eulerAngles.z);
         }
         else if(animation.IsPlaying("Walk"))
