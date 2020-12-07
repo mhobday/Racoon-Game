@@ -26,6 +26,8 @@ public class DataPersistance
     
     public int dollars;
 
+    public int totalDollars;
+
     public List<shopItem> itemsForSale = new List<shopItem>();
 
     public void removeMember(String name)
@@ -63,5 +65,7 @@ public class DataPersistance
     public void clearData()
     {
         itemsForSale = new List<shopItem>();
+        dollars = 0;
+        totalDollars = 0;
     }
 }
