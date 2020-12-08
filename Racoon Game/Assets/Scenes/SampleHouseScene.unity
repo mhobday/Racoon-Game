@@ -1733,7 +1733,6 @@ GameObject:
   - component: {fileID: 85936052}
   - component: {fileID: 85936051}
   - component: {fileID: 85936050}
-  - component: {fileID: 85936053}
   - component: {fileID: 85936054}
   m_Layer: 0
   m_Name: Main Camera
@@ -1807,18 +1806,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
---- !u!114 &85936053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 85936049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5be077b87eb49244b8920c234f32c8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &85936054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31761,7 +31748,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1288644593899552548, guid: 1f1cbf874ae7f7d4b88ef63d809450d8, type: 3}
       propertyPath: moveSpeed
-      value: 50
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1288644593899552548, guid: 1f1cbf874ae7f7d4b88ef63d809450d8, type: 3}
       propertyPath: camera
@@ -40739,6 +40726,10 @@ PrefabInstance:
     - target: {fileID: 1322572180570070856, guid: 203d88ad09ec35343816f2ed2e189888, type: 3}
       propertyPath: m_SmoothingTime
       value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1322572180570070856, guid: 203d88ad09ec35343816f2ed2e189888, type: 3}
+      propertyPath: m_Strategy
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1322572180570070861, guid: 203d88ad09ec35343816f2ed2e189888, type: 3}
       propertyPath: m_Name
