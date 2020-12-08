@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Use Sleep method under EnemyMovement to cause the effects of the sleep dart.
 public class SleepDart : MonoBehaviour
 {
     // Start is called before the first frame update

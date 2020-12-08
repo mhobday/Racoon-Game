@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Integrate with methods in Door Script
+
 public class Keys : MonoBehaviour
 {
     // Start is called before the first frame update

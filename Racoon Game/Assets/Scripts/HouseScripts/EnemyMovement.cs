@@ -2,18 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Integrate with methods in Window Script
-public class Brick : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.gameObject.tag = "Enemy";
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void Sleep ()
+    {
+
+    }
+
+    public void Pacified ()
+    {
+
     }
 }
