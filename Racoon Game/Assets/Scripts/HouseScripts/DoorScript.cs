@@ -14,11 +14,11 @@ public class DoorScript : MonoBehaviour
         float rotateAxisx = this.gameObject.GetComponent<MeshRenderer>().bounds.size.x / 2;
         this.position = this.gameObject.transform.position;
         this.position.x += rotateAxisx;
-        this.Open();
+        this.gameObject.tag = "Door";
     }
 
     // Update is called once per frame
-    void Open()
+    public void Open()
     {
         
         if(!locked)
@@ -27,7 +27,7 @@ public class DoorScript : MonoBehaviour
         }
     }
 
-    void close()
+    public void close()
     {
         this.gameObject.transform.RotateAround(this.position ,Vector3.up, -90);
     }
