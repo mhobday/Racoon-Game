@@ -31,7 +31,8 @@ public class SellItem : MonoBehaviour
         else
         {
             //SaveLoad.currentData.dollars += 10;
+            //SaveLoad.currentData.totalDollars += 10;
         }
-        MenuLoader.GoToMenu(MenuName.Main);
+        MenuLoader.GoToMenu(MenuName.Main); 
     }
 }

@@ -6,17 +6,23 @@ public class WindowScript : MonoBehaviour
 {   
 
     public GameObject brokenWindow;
-    void open()
+
+    void Start()
+    {
+        this.gameObject.tag = "Window";
+        open();
+    }
+    public void open()
     {
         this.gameObject.SetActive(false);
     }
 
-    void close()
+    public void close()
     {
         this.gameObject.SetActive(true);
     }
 
-    void breakWindow()
+    public void breakWindow()
     {
         float x = this.gameObject.transform.localScale.x;
         float y = this.gameObject.transform.localScale.y;

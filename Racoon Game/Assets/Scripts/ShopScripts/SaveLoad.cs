@@ -7,7 +7,7 @@ using System;
  
 public class SaveLoad : MonoBehaviour
 {
-    public static DataPersistance currentData;
+    public static DataPersistance currentData = new DataPersistance();
 
 
     public static void Save()
