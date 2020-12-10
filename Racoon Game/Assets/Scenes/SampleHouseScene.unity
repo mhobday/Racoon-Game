@@ -1801,7 +1801,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 85936049}
   m_LocalRotation: {x: 0.08440666, y: -0.000000034289958, z: 0.0000000029046665, w: 0.9964314}
-  m_LocalPosition: {x: 7.38, y: 2.5347, z: -8.096542}
+  m_LocalPosition: {x: -36.99788, y: 2.5347, z: 91.15346}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -31659,7 +31659,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1614705475532247807, guid: 1f1cbf874ae7f7d4b88ef63d809450d8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.38
+      value: -36.99788
       objectReference: {fileID: 0}
     - target: {fileID: 1614705475532247807, guid: 1f1cbf874ae7f7d4b88ef63d809450d8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -31667,7 +31667,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1614705475532247807, guid: 1f1cbf874ae7f7d4b88ef63d809450d8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.9034576
+      value: 103.15346
       objectReference: {fileID: 0}
     - target: {fileID: 1614705475532247807, guid: 1f1cbf874ae7f7d4b88ef63d809450d8, type: 3}
       propertyPath: m_LocalRotation.x
@@ -40618,7 +40618,7 @@ PrefabInstance:
       objectReference: {fileID: 871297013}
     - target: {fileID: 1322572180570070863, guid: 203d88ad09ec35343816f2ed2e189888, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.38
+      value: -36.99788
       objectReference: {fileID: 0}
     - target: {fileID: 1322572180570070863, guid: 203d88ad09ec35343816f2ed2e189888, type: 3}
       propertyPath: m_LocalPosition.y
@@ -40626,7 +40626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1322572180570070863, guid: 203d88ad09ec35343816f2ed2e189888, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.096542
+      value: 91.15346
       objectReference: {fileID: 0}
     - target: {fileID: 1322572180570070863, guid: 203d88ad09ec35343816f2ed2e189888, type: 3}
       propertyPath: m_LocalRotation.x
@@ -51830,9 +51830,17 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 7427114476685612512, guid: 204fdd117aff8b24ea20fcc6d1ab440a, type: 3}
+      propertyPath: cooldown
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7428354965061529715, guid: 204fdd117aff8b24ea20fcc6d1ab440a, type: 3}
       propertyPath: m_Name
-      value: GarageDoor
+      value: FrontDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 7428354965061529715, guid: 204fdd117aff8b24ea20fcc6d1ab440a, type: 3}
+      propertyPath: m_TagString
+      value: Door
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 204fdd117aff8b24ea20fcc6d1ab440a, type: 3}
@@ -60858,6 +60866,10 @@ PrefabInstance:
     - target: {fileID: 7428354965061529715, guid: 204fdd117aff8b24ea20fcc6d1ab440a, type: 3}
       propertyPath: m_Name
       value: GarageDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 7428354965061529715, guid: 204fdd117aff8b24ea20fcc6d1ab440a, type: 3}
+      propertyPath: m_TagString
+      value: Door
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 204fdd117aff8b24ea20fcc6d1ab440a, type: 3}
