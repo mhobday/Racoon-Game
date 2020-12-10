@@ -8,6 +8,8 @@ TagManager:
   - Window
   - Door
   - Enemy
+  - PlayerHead
+  - PrefabAccessor
   layers:
   - Default
   - TransparentFX
