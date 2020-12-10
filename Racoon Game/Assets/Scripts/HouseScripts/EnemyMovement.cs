@@ -64,10 +64,12 @@ public class EnemyMovement : MonoBehaviour
                 waiting = false;
                 move = true;
                 destination = false;
+                this.gameObject.GetComponent<Animator>().SetBool("Waiting", false);
             }
             else
             {
                 timer += Time.deltaTime;
+                this.gameObject.GetComponent<Animator>().SetBool("Waiting", true);
             }
         }
         else if(looking)
@@ -92,6 +94,7 @@ public class EnemyMovement : MonoBehaviour
     public void setMovement(Vector3 position)
     {
         tracking = true;
+        this.gameObject.GetComponent<Animator>().SetBool("Chasing", true);
         m_Agent.SetDestination(position);
     }
 
@@ -109,6 +112,7 @@ public class EnemyMovement : MonoBehaviour
         {
             looking = false;
             tracking = false;
+            this.gameObject.GetComponent<Animator>().SetBool("Chasing", false);
             totalTurn += (turnRate * Time.deltaTime );
         }
         
