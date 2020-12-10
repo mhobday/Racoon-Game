@@ -35,6 +35,10 @@ public class racoonMovement : MonoBehaviour
     public GameObject heldItem;
     //Location of the Raccoon's head
     private GameObject head;
+    //Index of the purchased item that is currently selected by the user.
+    private int selectedPurchasedItem = 0;
+
+    private PurchasedItem[] purchasedItems;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +48,7 @@ public class racoonMovement : MonoBehaviour
         animator = this.gameObject.GetComponent<Animator>();
         animation = this.gameObject.GetComponent<Animation>();
         head = this.gameObject.transform.Find("Rig/root/body/Head").gameObject;
+        purchasedItems = GetComponents<PurchasedItem>();
     }
 
     // Update is called once per frame
@@ -134,6 +139,26 @@ public class racoonMovement : MonoBehaviour
                 }
             }
         }
+
+        //Use item
+        if (Input.GetKeyDown(KeyCode.Mouse1)) {
+            if (purchasedItems.Length > 0) {
+                purchasedItems[selectedPurchasedItem].use();
+            }
+        }
+
+        //Swap item up
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 && purchasedItems.Length > 0) {
+            selectedPurchasedItem = (selectedPurchasedItem + 1) % purchasedItems.Length;
+            Debug.Log(purchasedItems[selectedPurchasedItem].GetType().Name);
+        }
+
+        //Swap item down
+        if (Input.GetAxis("Mouse ScrollWheel") < 0 && purchasedItems.Length > 0) {
+            selectedPurchasedItem = (selectedPurchasedItem + purchasedItems.Length - 1) % purchasedItems.Length;
+            Debug.Log(purchasedItems[selectedPurchasedItem].GetType().Name);
+        }
+
         //Hehe
         if(Input.GetKey(KeyCode.L))
         {
@@ -173,7 +198,7 @@ public class racoonMovement : MonoBehaviour
         heldItem.transform.position = head.transform.position;
         heldItem.GetComponent<Outline>().eraseRenderer = true;
         heldItem.transform.parent = head.transform;
-        heldItem.transform.localScale = heldItem.GetComponent<grabbableItem>().holdScale;
+        heldItem.transform.localScale = heldItem.transform.localScale / 2;
         holdingItem = true;
     }
     void ReleaseObject()
@@ -187,7 +212,7 @@ public class racoonMovement : MonoBehaviour
         heldItem.GetComponent<Rigidbody>().velocity = Vector3.zero;
         heldItem.GetComponent<Outline>().eraseRenderer = false;
         heldItem.transform.parent = null;
-        heldItem.transform.localScale = Vector3.one;
+        heldItem.transform.localScale = heldItem.transform.localScale * 2;
         holdingItem = false;
     }
 
