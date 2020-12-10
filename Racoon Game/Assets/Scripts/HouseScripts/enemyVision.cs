@@ -20,9 +20,8 @@ public class enemyVision : MonoBehaviour
 
     private EnemyMovement movement;
 
-    private Vector3 test;
-
-    private Vector3 test2;
+    private Vector3 enemyPosition;
+    private Vector3 playerPosition;
     private bool seenRecently = false;
 
     private EnemyMovement move;
@@ -45,8 +44,8 @@ public class enemyVision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        test = this.gameObject.transform.position;
-        test2 = player.transform.position;
+        enemyPosition = this.gameObject.transform.position;
+        playerPosition = player.transform.position;
         if (previousLastKnownPosition != lastKnownPosition)
         {
             previousLastKnownPosition = lastKnownPosition;
@@ -68,15 +67,37 @@ public class enemyVision : MonoBehaviour
         
         if(other.gameObject == player)
         {
-            
-            Vector3 direction = other.transform.position - transform.position;
+            Debug.Log("basics");
+            Vector3 direction = other.transform.position - enemyPosition;
             float angle = Vector3.Angle(direction, transform.forward);
-            if(angle < FOVAngle/2)
+            if(Vector3.Distance(enemyPosition, playerPosition) < 5)
             {
+                Debug.Log("Basics");
                 seenRecently = true;
                 playerInSight = false;
                 RaycastHit hit;
-                if(Physics.Raycast(transform.position + transform.up, direction.normalized, out hit, col.radius, invisibleLayer))
+                Debug.DrawRay(enemyPosition - transform.up, direction, Color.white, 1f);
+                if(Physics.Raycast(enemyPosition - transform.up, direction, out hit, col.radius, invisibleLayer))
+                {
+                    Debug.Log(hit.collider.gameObject.name);
+                    Debug.Log(this.gameObject.transform.position + transform.up);
+                    if(hit.collider.gameObject == player)
+                    {
+                        Debug.Log("Why");
+                        playerInSight = true;
+                        lastKnownPosition = player.transform.position;
+                        move.tracking = true;
+                        move.setMovement(lastKnownPosition);
+                    }
+                }
+            }
+            else if(angle < FOVAngle/2){
+                
+                seenRecently = true;
+                playerInSight = false;
+                RaycastHit hit;
+                Debug.DrawRay(enemyPosition + transform.up, direction.normalized, Color.white, 1f);
+                if(Physics.Raycast(enemyPosition + transform.up, direction.normalized, out hit, col.radius, invisibleLayer))
                 {
                     if(hit.collider.gameObject == player)
                     {
@@ -87,25 +108,11 @@ public class enemyVision : MonoBehaviour
                     }
                 }
             }
-            else if(Vector3.Distance(test, test2) < 5){
-                seenRecently = true;
+            else if(Vector3.Distance(enemyPosition, playerPosition) < 10 && seenRecently){
                 playerInSight = false;
                 RaycastHit hit;
-                if(Physics.Raycast(transform.position + transform.up, direction.normalized, out hit, col.radius, invisibleLayer))
-                {
-                    if(hit.collider.gameObject == player)
-                    {
-                        playerInSight = true;
-                        lastKnownPosition = player.transform.position;
-                        move.tracking = true;
-                        move.setMovement(lastKnownPosition);
-                    }
-                }
-            }
-            else if(Vector3.Distance(test, test2) < 10 && seenRecently){
-                playerInSight = false;
-                RaycastHit hit;
-                if(Physics.Raycast(transform.position + transform.up, direction.normalized, out hit, col.radius, invisibleLayer))
+                Debug.DrawRay(enemyPosition + transform.up, direction.normalized, Color.white, 1f);
+                if(Physics.Raycast(enemyPosition + transform.up, direction.normalized, out hit, col.radius, invisibleLayer))
                 {
                     if(hit.collider.gameObject == player)
                     {
