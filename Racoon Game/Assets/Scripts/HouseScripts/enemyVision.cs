@@ -15,6 +15,8 @@ public class enemyVision : MonoBehaviour
     private SphereCollider col;
     private GameObject player;
     private Vector3 previousLastKnownPosition;
+
+    private EnemyMovement movement;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,7 @@ public class enemyVision : MonoBehaviour
         col = GetComponent<SphereCollider>();
         player = GameObject.FindGameObjectWithTag("Player");
         renderer = GetComponent<Renderer>();
+        movement = this.gameObject.GetComponent<EnemyMovement>();
     }
 
     // Update is called once per frame
@@ -34,6 +37,7 @@ public class enemyVision : MonoBehaviour
         if(playerInSight)
         {
             renderer.material.color = new Color(1, 0, 0);
+            movement.m_Agent.SetDestination(player.transform.position);
         }
         else
         {
@@ -52,9 +56,9 @@ public class enemyVision : MonoBehaviour
             if(angle < FOVAngle/2)
             {
                 RaycastHit hit;
-                if(Physics.Raycast(transform.position + transform.up, direction.normalized, out hit, col.radius))
+                //if(Physics.Raycast(transform.position + transform.up, direction.normalized, out hit, col.radius))
                 {
-                    if(hit.collider.gameObject == player)
+                    //if(hit.collider.gameObject == player)
                     {
                         playerInSight = true;
                         lastKnownPosition = player.transform.position;

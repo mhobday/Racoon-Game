@@ -35,6 +35,8 @@ public class HouseManager : MonoBehaviour
                 d.locked = true;
             }
         }    
+
+
             
 
     }
