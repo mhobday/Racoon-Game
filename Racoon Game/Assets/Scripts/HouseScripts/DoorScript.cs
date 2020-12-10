@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class DoorScript : MonoBehaviour
 {
-    // Start is called before the first frame update
     public bool locked = false;
-
+    public float cooldown = 2;
+    public float distanceToActivate = 5;
     public Vector3 position;
+
+    private bool isOpen;
+    private bool isOpening;
+    private bool isClosing;
 
     void Start()
     {
@@ -15,28 +19,51 @@ public class DoorScript : MonoBehaviour
         this.position = this.gameObject.transform.position;
         this.gameObject.tag = "Door";
         this.locked = false;
-        this.Open();
+        this.isOpen = false;
+        this.isOpening = false;
+        this.isClosing = false;
+        // this.Open();
     }
 
     // Update is called once per frame
     public void Open()
     {
-        
-        if(!locked)
+
+        if(!locked && !isOpen && !isOpening)
         {
             this.gameObject.transform.RotateAround(this.position ,Vector3.up, 90);
             Debug.Log(this.position);
             Debug.Log("opened");
+            Invoke("Opened", cooldown);
+            isOpening = true;
         }
     }
 
-    public void close()
+    private void Opened() {
+        isOpening = false;
+        isOpen = true;
+    }
+
+    public void Close()
     {
-        this.gameObject.transform.RotateAround(this.position ,Vector3.up, -90);
+        if (isOpen && !isClosing) {
+            this.gameObject.transform.RotateAround(this.position ,Vector3.up, -90);
+            Invoke("Closed", cooldown);
+            isClosing = true;
+        }
+    }
+
+    private void Closed() {
+        isClosing = false;
+        isOpen = false;
     }
 
     public void enemyOpen()
     {
         this.gameObject.transform.RotateAround(this.position ,Vector3.up, 90);
+    }
+
+    public bool getIsOpen() {
+        return isOpen;
     }
 }

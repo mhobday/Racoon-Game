@@ -118,6 +118,22 @@ public class racoonMovement : MonoBehaviour
             animation.Play("Munch");
             ReleaseObject();
         }
+
+        //Open Door
+        if (Input.GetKey(KeyCode.E)) {
+            GameObject[] doors = GameObject.FindGameObjectsWithTag("Door");
+            foreach (GameObject door in doors)
+            {
+                DoorScript doorScript = door.GetComponent<DoorScript>();
+                if (Vector3.Distance(transform.position, door.transform.position) < doorScript.distanceToActivate) {
+                    if (!doorScript.getIsOpen()) {
+                        doorScript.Open();
+                    } else {
+                        doorScript.Close();
+                    }
+                }
+            }
+        }
         //Hehe
         if(Input.GetKey(KeyCode.L))
         {
