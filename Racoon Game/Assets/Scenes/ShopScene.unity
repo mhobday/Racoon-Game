@@ -387,6 +387,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 405803691985683832, guid: 9419ada406b365b43a33cbd73bdda640, type: 3}
+      propertyPath: m_Text
+      value: Raccoonaissance
+      objectReference: {fileID: 0}
     - target: {fileID: 405803692008604674, guid: 9419ada406b365b43a33cbd73bdda640, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
