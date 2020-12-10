@@ -10,7 +10,7 @@ public class enemyVision : MonoBehaviour
     public bool playerInSight;
 
     private int invisibleLayer;
-    
+
     private Vector3 lastKnownPosition;
     private Renderer renderer;
     private NavMeshAgent nav;
@@ -44,7 +44,7 @@ public class enemyVision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enemyPosition = this.gameObject.transform.position;
+        enemyPosition = this.gameObject.transform.position + transform.up;
         playerPosition = player.transform.position;
         if (previousLastKnownPosition != lastKnownPosition)
         {
@@ -64,7 +64,7 @@ public class enemyVision : MonoBehaviour
     //Also has options for hearing the player as well
     private void OnTriggerStay(Collider other)
     {
-        
+
         if(other.gameObject == player)
         {
             Debug.Log("basics");
@@ -76,8 +76,8 @@ public class enemyVision : MonoBehaviour
                 seenRecently = true;
                 playerInSight = false;
                 RaycastHit hit;
-                Debug.DrawRay(enemyPosition - transform.up, direction, Color.white, 1f);
-                if(Physics.Raycast(enemyPosition - transform.up, direction, out hit, col.radius, invisibleLayer))
+                Debug.DrawRay(enemyPosition, direction * 500, Color.white, 0.1f);
+                if(Physics.Raycast(enemyPosition, direction, out hit, col.radius, invisibleLayer))
                 {
                     Debug.Log(hit.collider.gameObject.name);
                     Debug.Log(this.gameObject.transform.position + transform.up);
@@ -92,12 +92,12 @@ public class enemyVision : MonoBehaviour
                 }
             }
             else if(angle < FOVAngle/2){
-                
+
                 seenRecently = true;
                 playerInSight = false;
                 RaycastHit hit;
-                Debug.DrawRay(enemyPosition + transform.up, direction.normalized, Color.white, 1f);
-                if(Physics.Raycast(enemyPosition + transform.up, direction.normalized, out hit, col.radius, invisibleLayer))
+                Debug.DrawRay(enemyPosition, direction.normalized, Color.white, 0.1f);
+                if(Physics.Raycast(enemyPosition, direction.normalized, out hit, col.radius, invisibleLayer))
                 {
                     if(hit.collider.gameObject == player)
                     {
@@ -111,8 +111,8 @@ public class enemyVision : MonoBehaviour
             else if(Vector3.Distance(enemyPosition, playerPosition) < 10 && seenRecently){
                 playerInSight = false;
                 RaycastHit hit;
-                Debug.DrawRay(enemyPosition + transform.up, direction.normalized, Color.white, 1f);
-                if(Physics.Raycast(enemyPosition + transform.up, direction.normalized, out hit, col.radius, invisibleLayer))
+                Debug.DrawRay(enemyPosition, direction.normalized, Color.white, 1f);
+                if(Physics.Raycast(enemyPosition, direction.normalized, out hit, col.radius, invisibleLayer))
                 {
                     if(hit.collider.gameObject == player)
                     {
