@@ -8,6 +8,8 @@ public class enemyVision : MonoBehaviour
     public float FOVAngle = 110;
     public float maxVisionDistance = 10;
     public bool playerInSight;
+
+    private int invisibleLayer;
     
     private Vector3 lastKnownPosition;
     private Renderer renderer;
@@ -17,6 +19,16 @@ public class enemyVision : MonoBehaviour
     private Vector3 previousLastKnownPosition;
 
     private EnemyMovement movement;
+
+    private Vector3 test;
+
+    private Vector3 test2;
+    private bool seenRecently = false;
+
+    private EnemyMovement move;
+    private bool turning = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,11 +37,16 @@ public class enemyVision : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         renderer = GetComponent<Renderer>();
         movement = this.gameObject.GetComponent<EnemyMovement>();
+        invisibleLayer = 1 << 8;
+        invisibleLayer = ~invisibleLayer;
+        move = this.gameObject.GetComponent<EnemyMovement>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        test = this.gameObject.transform.position;
+        test2 = player.transform.position;
         if (previousLastKnownPosition != lastKnownPosition)
         {
             previousLastKnownPosition = lastKnownPosition;
@@ -48,22 +65,70 @@ public class enemyVision : MonoBehaviour
     //Also has options for hearing the player as well
     private void OnTriggerStay(Collider other)
     {
+        
         if(other.gameObject == player)
         {
-            playerInSight = false;
+            
             Vector3 direction = other.transform.position - transform.position;
             float angle = Vector3.Angle(direction, transform.forward);
             if(angle < FOVAngle/2)
             {
+                seenRecently = true;
+                playerInSight = false;
                 RaycastHit hit;
-                //if(Physics.Raycast(transform.position + transform.up, direction.normalized, out hit, col.radius))
+                if(Physics.Raycast(transform.position + transform.up, direction.normalized, out hit, col.radius, invisibleLayer))
                 {
-                    //if(hit.collider.gameObject == player)
+                    if(hit.collider.gameObject == player)
                     {
                         playerInSight = true;
                         lastKnownPosition = player.transform.position;
+                        move.tracking = true;
+                        move.setMovement(lastKnownPosition);
                     }
                 }
+            }
+            else if(Vector3.Distance(test, test2) < 5){
+                seenRecently = true;
+                playerInSight = false;
+                RaycastHit hit;
+                if(Physics.Raycast(transform.position + transform.up, direction.normalized, out hit, col.radius, invisibleLayer))
+                {
+                    if(hit.collider.gameObject == player)
+                    {
+                        playerInSight = true;
+                        lastKnownPosition = player.transform.position;
+                        move.tracking = true;
+                        move.setMovement(lastKnownPosition);
+                    }
+                }
+            }
+            else if(Vector3.Distance(test, test2) < 10 && seenRecently){
+                playerInSight = false;
+                RaycastHit hit;
+                if(Physics.Raycast(transform.position + transform.up, direction.normalized, out hit, col.radius, invisibleLayer))
+                {
+                    if(hit.collider.gameObject == player)
+                    {
+                        playerInSight = true;
+                        lastKnownPosition = player.transform.position;
+                        move.tracking = true;
+                        move.setMovement(lastKnownPosition);
+                    }
+                }
+            }
+            else if (seenRecently)
+            {
+                move.turn();
+                seenRecently = false;
+            }
+            else if(move.looking)
+            {
+
+            }
+            else
+            {
+                seenRecently = false;
+                move.tracking = false;
             }
         }
         //In the future could add code to test what is playing audio and ignore some, could also ignore certain sounds that are just for fun.

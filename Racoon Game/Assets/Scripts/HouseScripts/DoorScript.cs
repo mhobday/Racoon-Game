@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class DoorScript : MonoBehaviour
 {
@@ -19,16 +20,15 @@ public class DoorScript : MonoBehaviour
         this.position = this.gameObject.transform.position;
         this.gameObject.tag = "Door";
         this.locked = false;
-        this.isOpen = false;
+        this.isOpen = true;
         this.isOpening = false;
         this.isClosing = false;
-        // this.Open();
+        this.Close();
     }
 
     // Update is called once per frame
     public void Open()
     {
-
         if(!locked && !isOpen && !isOpening)
         {
             this.gameObject.transform.RotateAround(this.position ,Vector3.up, 90);
@@ -60,10 +60,33 @@ public class DoorScript : MonoBehaviour
 
     public void enemyOpen()
     {
-        this.gameObject.transform.RotateAround(this.position ,Vector3.up, 90);
+        if(!isOpen && !isOpening)
+        {
+            this.gameObject.transform.RotateAround(this.position ,Vector3.up, 90);
+            Debug.Log(this.position);
+            Debug.Log("opened");
+            Invoke("Opened", cooldown);
+            isOpening = true;
+        }
     }
 
     public bool getIsOpen() {
         return isOpen;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.GetComponent<NavMeshAgent>() != null && other is CapsuleCollider)
+        {
+            this.enemyOpen();
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.GetComponent<NavMeshAgent>() != null && other is CapsuleCollider)
+        {
+            this.Close();
+        }
     }
 }
