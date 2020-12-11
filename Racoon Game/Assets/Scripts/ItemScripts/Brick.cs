@@ -21,13 +21,6 @@ public class Brick : PurchasedItem
 
     }
 
-    void OnCollisionStay(Collision collisionInfo)
-    {
-        if (collisionInfo.gameObject.tag == "Window") {
-            collisionInfo.gameObject.GetComponent<WindowScript>().breakWindow();
-        }
-    }
-
     public override void use() {
         GameObject newBrick = Instantiate(brickPrefab, playerHead.transform.position, playerHead.transform.rotation);
         newBrick.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 1000);
