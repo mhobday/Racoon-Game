@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour
 {
 
     private bool waiting = false;
-    private float timer = 0;
+    private float timer = 5;
 
     private bool move = false;
 
@@ -20,7 +20,7 @@ public class EnemyMovement : MonoBehaviour
 
     public bool tracking = false;
 
-    private Vector3 last;
+    private Vector3 last = new Vector3(0,0,0);
 
     public float turnRate = 1000;
 
