@@ -205,7 +205,7 @@ public class racoonMovement : MonoBehaviour
             head.transform.rotation.y + heldItemScript.holdRotation.y,
             head.transform.rotation.z + heldItemScript.holdRotation.z);
         heldItem.transform.position = head.transform.position + heldItemScript.holdOffset;
-        heldItem.GetComponent<Outline>().eraseRenderer = true;
+        heldItem.GetComponent<cakeslice.Outline>().eraseRenderer = true;
         heldItem.transform.parent = head.transform;
         heldItem.transform.localScale = heldItem.transform.localScale / heldItemScript.holdScale;
         holdingItem = true;
@@ -219,7 +219,7 @@ public class racoonMovement : MonoBehaviour
         heldItem.GetComponent<Rigidbody>().useGravity = true;
         heldItem.GetComponent<Rigidbody>().isKinematic = false;
         heldItem.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        heldItem.GetComponent<Outline>().eraseRenderer = false;
+        heldItem.GetComponent<cakeslice.Outline>().eraseRenderer = false;
         heldItem.transform.parent = null;
         heldItem.transform.localScale = heldItem.transform.localScale * heldItem.GetComponent<grabbableItem>().holdScale;
         holdingItem = false;
