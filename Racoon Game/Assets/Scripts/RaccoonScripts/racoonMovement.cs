@@ -25,7 +25,7 @@ public class racoonMovement : MonoBehaviour
     [SerializeField]
     public Transform camera;
     //All grabbable items currently within reach
-    List<GameObject> currentGrabbables = new List<GameObject>();
+    public List<GameObject> currentGrabbables = new List<GameObject>();
     [SerializeField]
     //Amount of time idle before an animation is played
     private float idleTimerMax = 3;
@@ -222,6 +222,7 @@ public class racoonMovement : MonoBehaviour
         heldItem.GetComponent<cakeslice.Outline>().eraseRenderer = false;
         heldItem.transform.parent = null;
         heldItem.transform.localScale = heldItem.transform.localScale * heldItem.GetComponent<grabbableItem>().holdScale;
+        heldItem = null;
         holdingItem = false;
     }
 
