@@ -12,15 +12,18 @@ public class Newspaper : PurchasedItem
     {
         if(!exists)
         {
-            GameObject newBox = Instantiate(boxPrefab, transform.position, transform.rotation);
+            newBox = Instantiate(boxPrefab, transform.position, transform.rotation);
             newBox.transform.parent = player.transform;
-            newBox.transform.position = player.transform.position + new Vector3(0, .2f, 0);
-            newBox.transform.rotation = Quaternion.Euler(85, 0, 0);
+            newBox.transform.position = player.transform.position + new Vector3(0, 1.2f, 0);
+            newBox.transform.rotation = Quaternion.Euler(85, player.transform.rotation.eulerAngles.y, player.transform.rotation.eulerAngles.z);
             exists = true;
+            player.gameObject.GetComponent<racoonMovement>().box = true;
         }
         else
         {
             Destroy(newBox.gameObject);
+            exists = false;
+            player.gameObject.GetComponent<racoonMovement>().box = false;
         }
     }
 

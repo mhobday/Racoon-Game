@@ -37,7 +37,7 @@ public class racoonMovement : MonoBehaviour
     private GameObject head;
     //Index of the purchased item that is currently selected by the user.
     private int selectedPurchasedItem = 0;
-
+    public bool box = false;
     private PurchasedItem[] purchasedItems;
 
     // Start is called before the first frame update

@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - PlayerHead
   - PrefabAccessor
+  - Box
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - 
   - Window
   - Player
-  - 
+  - Box
   - 
   - 
   - 

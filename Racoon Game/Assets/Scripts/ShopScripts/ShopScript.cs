@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class ShopScript : MonoBehaviour
 {
     public GameObject shopItem;
-    
+
     public static Text dollars;
 
     public static int dollarAmount;
@@ -18,8 +18,8 @@ public class ShopScript : MonoBehaviour
 
     public static List<ItemName> itemsPurchased = new List<ItemName>();
 
-    
-    
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,7 +55,7 @@ public class ShopScript : MonoBehaviour
         {
             GameObject item = (GameObject) Instantiate(shopItem);
             item.transform.SetParent(shop.transform);
-            
+
 
             item.transform.GetChild(0).gameObject.GetComponent<Text>().text = itemsForSale[i].name;
             item.GetComponent<ButtonScript>().name = itemsForSale[i].name;
@@ -63,10 +63,10 @@ public class ShopScript : MonoBehaviour
             item.GetComponent<ButtonScript>().item = itemsForSale[i].item;
             item.transform.GetChild(1).gameObject.GetComponent<Text>().text = "$" + itemsForSale[i].cost;
         }
-        
+
     }
 }
 
 
-    
+
 
