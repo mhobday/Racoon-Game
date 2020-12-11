@@ -50,7 +50,7 @@ public class SaveLoad : MonoBehaviour
             currentData = new DataPersistance();
         }
         currentData = new DataPersistance();
-        setData();
+        
         
     }
 
