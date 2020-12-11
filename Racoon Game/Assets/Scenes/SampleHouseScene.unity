@@ -1735,6 +1735,7 @@ GameObject:
   - component: {fileID: 85936050}
   - component: {fileID: 85936054}
   - component: {fileID: 85936053}
+  - component: {fileID: 85936055}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1937,6 +1938,18 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &85936055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85936049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 781234efc20d1fb4597bc7a16b77de63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &86622110
 GameObject:
   m_ObjectHideFlags: 0
@@ -41011,11 +41024,11 @@ PrefabInstance:
       objectReference: {fileID: 871297013}
     - target: {fileID: 1322572181528729075, guid: 203d88ad09ec35343816f2ed2e189888, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000017168505
+      value: -0.000000017168505
       objectReference: {fileID: 0}
     - target: {fileID: 1322572181528729075, guid: 203d88ad09ec35343816f2ed2e189888, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000011410591
+      value: 0.0000000011410591
       objectReference: {fileID: 0}
     - target: {fileID: 1322572181528729075, guid: 203d88ad09ec35343816f2ed2e189888, type: 3}
       propertyPath: m_LocalRotation.x
@@ -41031,11 +41044,11 @@ PrefabInstance:
       objectReference: {fileID: 871297013}
     - target: {fileID: 1322572181870282367, guid: 203d88ad09ec35343816f2ed2e189888, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0000000042789328
+      value: -0.000000004278934
       objectReference: {fileID: 0}
     - target: {fileID: 1322572181870282367, guid: 203d88ad09ec35343816f2ed2e189888, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -4.409879e-10
+      value: 4.4098808e-10
       objectReference: {fileID: 0}
     - target: {fileID: 1322572181870282367, guid: 203d88ad09ec35343816f2ed2e189888, type: 3}
       propertyPath: m_LocalRotation.x
