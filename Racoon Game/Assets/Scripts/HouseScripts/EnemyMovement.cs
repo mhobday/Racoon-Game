@@ -47,6 +47,7 @@ public class EnemyMovement : MonoBehaviour
             if(this.gameObject.transform.position == last && !move)
             {
                 waiting = true;
+                this.gameObject.GetComponent<Animator>().SetBool("Waiting", true);
             }
             else if(!destination)
             {
@@ -69,7 +70,6 @@ public class EnemyMovement : MonoBehaviour
             else
             {
                 timer += Time.deltaTime;
-                this.gameObject.GetComponent<Animator>().SetBool("Waiting", true);
             }
         }
         else if(looking)
