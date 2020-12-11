@@ -18,6 +18,7 @@ public class grabbableItem : MonoBehaviour
     {
         gameObject.tag = "Grabbable";
         outline = this.gameObject.GetComponent<Outline>();
+        outline.eraseRenderer = true;
     }
     //Highlight when player is near
     private void OnTriggerEnter(Collider other)

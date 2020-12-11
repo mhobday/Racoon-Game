@@ -14,6 +14,7 @@ public class racoonDeath : MonoBehaviour
         {
             this.gameObject.GetComponent<Animation>().Play("Death");
             this.gameObject.GetComponent<racoonMovement>().enabled = false;
+            gameObject.GetComponent<Collider>().enabled = false;
             StartCoroutine(EndGame(3.0f));
         }
     }
