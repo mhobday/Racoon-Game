@@ -11,7 +11,6 @@ public class WindowScript : MonoBehaviour
     {
         this.gameObject.tag = "Window";
         this.gameObject.layer = LayerMask.NameToLayer("Window");
-        open();
     }
     public void open()
     {
