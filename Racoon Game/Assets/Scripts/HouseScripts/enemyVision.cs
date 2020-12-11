@@ -65,7 +65,7 @@ public class enemyVision : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
 
-        if(other.gameObject == player)
+        if(other.gameObject == player && !player.gameObject.GetComponent<racoonMovement>().box)
         {
             Vector3 direction = other.transform.position - enemyPosition;
             float angle = Vector3.Angle(direction, transform.forward);
@@ -109,10 +109,10 @@ public class enemyVision : MonoBehaviour
                 {
                     if(hit.collider.gameObject == player)
                     {
-                        playerInSight = true;
-                        lastKnownPosition = player.transform.position;
-                        move.tracking = true;
-                        move.setMovement(lastKnownPosition);
+                            playerInSight = true;
+                            lastKnownPosition = player.transform.position;
+                            move.tracking = true;
+                            move.setMovement(lastKnownPosition);
                     }
                 }
             }
