@@ -115,6 +115,5 @@ public class EnemyMovement : MonoBehaviour
             this.gameObject.GetComponent<Animator>().SetBool("Chasing", false);
             totalTurn += (turnRate * Time.deltaTime );
         }
-        
     }
 }
