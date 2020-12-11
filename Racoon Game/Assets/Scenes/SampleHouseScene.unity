@@ -43308,11 +43308,11 @@ PrefabInstance:
       objectReference: {fileID: 871297013}
     - target: {fileID: 1322572181528729075, guid: 203d88ad09ec35343816f2ed2e189888, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000017168505
+      value: 0.000000017168505
       objectReference: {fileID: 0}
     - target: {fileID: 1322572181528729075, guid: 203d88ad09ec35343816f2ed2e189888, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000011410591
+      value: -0.0000000011410591
       objectReference: {fileID: 0}
     - target: {fileID: 1322572181528729075, guid: 203d88ad09ec35343816f2ed2e189888, type: 3}
       propertyPath: m_LocalRotation.x
@@ -43328,11 +43328,11 @@ PrefabInstance:
       objectReference: {fileID: 871297013}
     - target: {fileID: 1322572181870282367, guid: 203d88ad09ec35343816f2ed2e189888, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00000000427893
+      value: -0.0000000042789328
       objectReference: {fileID: 0}
     - target: {fileID: 1322572181870282367, guid: 203d88ad09ec35343816f2ed2e189888, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -4.4098764e-10
+      value: 4.409879e-10
       objectReference: {fileID: 0}
     - target: {fileID: 1322572181870282367, guid: 203d88ad09ec35343816f2ed2e189888, type: 3}
       propertyPath: m_LocalRotation.x
@@ -51057,7 +51057,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -111.06, y: -28.080002}
-  m_SizeDelta: {x: 221.11157, y: 55.163605}
+  m_SizeDelta: {x: 400, y: 55.163605}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1673435601
 MonoBehaviour:

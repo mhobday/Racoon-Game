@@ -7,7 +7,7 @@ using System;
 [Serializable]
 public class shopItem
 {
-    
+
     public string name;
 
     public int cost;
@@ -21,9 +21,9 @@ public class shopItem
     }
 }
 [Serializable]
-public class DataPersistance 
+public class DataPersistance
 {
-    
+
     public int dollars;
 
     public int totalDollars;
@@ -50,7 +50,7 @@ public class DataPersistance
     {
         itemsForSale = new List<shopItem>();
         itemsForSale.Add(new shopItem("Distraction Garbage", 10, ItemName.Garbage));
-        itemsForSale.Add(new shopItem("Box Disguise", 20, ItemName.Newspaper));
+        itemsForSale.Add(new shopItem("Box Disguise", 20, ItemName.BoxDisguise));
         itemsForSale.Add(new shopItem("Decoy Raccoon", 50, ItemName.Decoy));
         itemsForSale.Add(new shopItem("Dog Treat", 20, ItemName.Treat));
         itemsForSale.Add(new shopItem("Garage Door Clicker", 30, ItemName.Clicker));

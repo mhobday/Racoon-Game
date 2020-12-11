@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Newspaper : PurchasedItem
+public class BoxDisguise : PurchasedItem
 {
     private GameObject boxPrefab;
     private GameObject player;
     private GameObject newBox;
     private bool exists;
-    public override void use() 
+    public override void use()
     {
         if(!exists)
         {

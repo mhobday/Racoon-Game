@@ -6,7 +6,7 @@ public enum ItemName
 {
     Garbage,
 
-    Newspaper,
+    BoxDisguise,
 
     Decoy,
 
