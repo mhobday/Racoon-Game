@@ -24037,6 +24037,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c612afd364f3faa4b934a3780e67f40e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameOver: {fileID: 8300000, guid: 986aacf4a1a16c049899f6793d9bebf6, type: 3}
+  camera: {fileID: 85936051}
 --- !u!136 &897665200
 CapsuleCollider:
   m_ObjectHideFlags: 0
