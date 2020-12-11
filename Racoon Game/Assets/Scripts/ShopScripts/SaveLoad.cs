@@ -50,12 +50,6 @@ public class SaveLoad : MonoBehaviour
             currentData = new DataPersistance();
         }
         currentData.SetData();
-
-    }
-
-    public static void setData()
-    {
-        currentData.SetData();
     }
 
     void OnApplicationQuit()

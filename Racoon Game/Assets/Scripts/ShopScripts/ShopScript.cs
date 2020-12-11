@@ -68,6 +68,7 @@ public class ShopScript : MonoBehaviour
             item.GetComponent<ButtonScript>().item = itemsForSale[i].item;
             item.transform.GetChild(1).gameObject.GetComponent<Text>().text = "$" + itemsForSale[i].cost;
         }
+        Debug.Log(itemsForSale);
 
     }
 }
