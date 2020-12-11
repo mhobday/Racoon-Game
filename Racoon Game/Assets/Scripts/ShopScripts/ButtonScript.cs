@@ -12,9 +12,9 @@ public class ButtonScript : MonoBehaviour
     public GameObject twin;
     public void activate()
     {
-        Debug.Log(ShopScript.itemsPurchased.Count);
         if(SaveLoad.currentData.dollars >= cost && ShopScript.itemsPurchased.Count < 3)
         {
+            SaveLoad.currentData.dollars -= cost;
             ShopScript.dollars.text = "$" + SaveLoad.currentData.dollars;
             for(int i = 0; i < SaveLoad.currentData.itemsForSale.Count; i++)
             {

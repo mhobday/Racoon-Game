@@ -39,6 +39,7 @@ public class ShopScript : MonoBehaviour
 
     public void HandleRaccoonissanceButtonOnClickEvent()
     {
+        SaveLoad.Save();
         MenuLoader.GoToMenu(MenuName.Raccoonissance);
     }
 
