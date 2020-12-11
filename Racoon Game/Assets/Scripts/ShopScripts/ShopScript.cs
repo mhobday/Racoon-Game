@@ -16,7 +16,7 @@ public class ShopScript : MonoBehaviour
 
     GameObject shop;
 
-    public static List<ItemName> itemsPurchased = new List<ItemName>();
+    public static List<ItemName> itemsPurchased;
 
     private static bool isLoaded = false;
 
@@ -34,6 +34,7 @@ public class ShopScript : MonoBehaviour
         dollars.text = "$" + SaveLoad.currentData.dollars;
         shop = GameObject.Find("Content");
         itemsForSale = SaveLoad.currentData.itemsForSale;
+        itemsPurchased = new List<ItemName>();
         PopulateShop();
     }
 

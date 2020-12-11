@@ -164,6 +164,7 @@ GameObject:
   - component: {fileID: 1288644593899552538}
   - component: {fileID: 1288644593899552549}
   - component: {fileID: 1288644593899552539}
+  - component: {fileID: 794754783318406723}
   - component: {fileID: 1288644593899552548}
   m_Layer: 0
   m_Name: Player
@@ -263,6 +264,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &794754783318406723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099599640512563269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcd65999728648a489729826362b3408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1288644593899552548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,9 +296,12 @@ MonoBehaviour:
   animator: {fileID: 1288644593899552539}
   animation: {fileID: 0}
   camera: {fileID: 0}
+  currentGrabbables: []
   idleTimerMax: 3
   holdingItem: 0
   heldItem: {fileID: 0}
+  itemText: {fileID: 0}
+  box: 0
 --- !u!1 &2109647626021916979
 GameObject:
   m_ObjectHideFlags: 0

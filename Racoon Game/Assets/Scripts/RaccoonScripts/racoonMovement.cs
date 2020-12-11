@@ -51,7 +51,7 @@ public class racoonMovement : MonoBehaviour
         animator = this.gameObject.GetComponent<Animator>();
         animation = this.gameObject.GetComponent<Animation>();
         head = this.gameObject.transform.Find("Rig/root/body/Head").gameObject;
-        purchasedItems = GetComponents<PurchasedItem>();
+        purchasedItems = this.gameObject.GetComponents<PurchasedItem>();
     }
 
     // Update is called once per frame
