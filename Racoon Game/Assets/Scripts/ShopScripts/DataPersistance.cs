@@ -48,8 +48,9 @@ public class DataPersistance
 
     public void SetData()
     {
+        itemsForSale = new List<shopItem>();
         itemsForSale.Add(new shopItem("Distraction Garbage", 10, ItemName.Garbage));
-        itemsForSale.Add(new shopItem("Newspaper Disguise", 20, ItemName.Newspaper));
+        itemsForSale.Add(new shopItem("Box Disguise", 20, ItemName.Newspaper));
         itemsForSale.Add(new shopItem("Decoy Raccoon", 50, ItemName.Decoy));
         itemsForSale.Add(new shopItem("Dog Treat", 20, ItemName.Treat));
         itemsForSale.Add(new shopItem("Garage Door Clicker", 30, ItemName.Clicker));
