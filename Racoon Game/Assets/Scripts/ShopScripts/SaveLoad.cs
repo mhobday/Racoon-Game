@@ -49,15 +49,13 @@ public class SaveLoad : MonoBehaviour
         {
             currentData = new DataPersistance();
         }
-        currentData = new DataPersistance();
-        
+        currentData.SetData();
         
     }
 
     public static void setData()
     {
         currentData.SetData();
-        currentData.dollars = 1000;
     }
 
     void OnApplicationQuit()
