@@ -57,23 +57,11 @@ public class ShopScript : MonoBehaviour
             item.transform.SetParent(shop.transform);
             
 
-            item.GetComponent<Text>().text = itemsForSale[i].name;
+            item.transform.GetChild(0).gameObject.GetComponent<Text>().text = itemsForSale[i].name;
             item.GetComponent<ButtonScript>().name = itemsForSale[i].name;
             item.GetComponent<ButtonScript>().cost = itemsForSale[i].cost;
             item.GetComponent<ButtonScript>().item = itemsForSale[i].item;
-
-            GameObject cost = (GameObject) Instantiate(shopItem);
-            cost.transform.SetParent(shop.transform);
-
-            cost.GetComponent<Text>().text = "$" + itemsForSale[i].cost;
-
-            cost.GetComponent<ButtonScript>().name = itemsForSale[i].name;
-            cost.GetComponent<ButtonScript>().cost = itemsForSale[i].cost;
-            cost.GetComponent<ButtonScript>().item = itemsForSale[i].item;
-
-            item.GetComponent<ButtonScript>().twin = cost;
-            cost.GetComponent<ButtonScript>().twin = item;
-            
+            item.transform.GetChild(1).gameObject.GetComponent<Text>().text = "$" + itemsForSale[i].cost;
         }
         
     }
