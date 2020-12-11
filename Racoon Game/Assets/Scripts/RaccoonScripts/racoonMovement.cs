@@ -186,6 +186,7 @@ public class racoonMovement : MonoBehaviour
     void GrabObject(List<GameObject> currentGrabbables)
     {
         heldItem = FindClosestObjectTo(currentGrabbables, head.transform.position);
+        grabbableItem heldItemScript = heldItem.GetComponent<grabbableItem>();
         currentGrabbables.Remove(heldItem);
         foreach (Collider c in heldItem.GetComponents<Collider>())
         {
@@ -194,11 +195,14 @@ public class racoonMovement : MonoBehaviour
         heldItem.GetComponent<Rigidbody>().useGravity = false;
         heldItem.GetComponent<Rigidbody>().isKinematic = true;
         heldItem.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        heldItem.transform.rotation = Quaternion.identity;
-        heldItem.transform.position = head.transform.position;
+        heldItem.transform.rotation = Quaternion.Euler(
+            head.transform.rotation.x + heldItemScript.holdRotation.x,
+            head.transform.rotation.y + heldItemScript.holdRotation.y,
+            head.transform.rotation.z + heldItemScript.holdRotation.z);
+        heldItem.transform.position = head.transform.position + heldItemScript.holdOffset;
         heldItem.GetComponent<Outline>().eraseRenderer = true;
         heldItem.transform.parent = head.transform;
-        heldItem.transform.localScale = heldItem.transform.localScale / 2;
+        heldItem.transform.localScale = heldItem.transform.localScale / heldItemScript.holdScale;
         holdingItem = true;
     }
     void ReleaseObject()
@@ -212,7 +216,7 @@ public class racoonMovement : MonoBehaviour
         heldItem.GetComponent<Rigidbody>().velocity = Vector3.zero;
         heldItem.GetComponent<Outline>().eraseRenderer = false;
         heldItem.transform.parent = null;
-        heldItem.transform.localScale = heldItem.transform.localScale * 2;
+        heldItem.transform.localScale = heldItem.transform.localScale * heldItem.GetComponent<grabbableItem>().holdScale;
         holdingItem = false;
     }
 

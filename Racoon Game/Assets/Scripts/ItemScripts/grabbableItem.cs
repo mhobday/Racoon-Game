@@ -7,9 +7,13 @@ public class grabbableItem : MonoBehaviour
 {
     public Outline outline;
 
-    public int cost;
+    public int cost = 10;
     //Scale the object will be in xyz when grabbed
-    public Vector3 holdScale = new Vector3 (.0005f, .0005f, .0005f);
+    public int holdScale = 2;
+
+    public Vector3 holdRotation = Vector3.zero;
+    public Vector3 holdOffset = Vector3.zero;
+
     void Start()
     {
         gameObject.tag = "Grabbable";
