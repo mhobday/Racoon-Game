@@ -123,24 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &117157505 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2578913213271140334, guid: 9419ada406b365b43a33cbd73bdda640, type: 3}
+--- !u!114 &51884664 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 405803692521278363, guid: 9419ada406b365b43a33cbd73bdda640, type: 3}
   m_PrefabInstance: {fileID: 1386410394}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &117157510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 117157505}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 435e88685d6d02549854ee2209603b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shopItem: {fileID: 8229658498660448969, guid: 722890724fc7b93449c1801099f6ce7c, type: 3}
 --- !u!1 &591829371
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,24 +309,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &907956341 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8536764751239617680, guid: 9419ada406b365b43a33cbd73bdda640, type: 3}
-  m_PrefabInstance: {fileID: 1386410394}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &907956346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 907956341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 435e88685d6d02549854ee2209603b92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shopItem: {fileID: 8229658498660448969, guid: 722890724fc7b93449c1801099f6ce7c, type: 3}
 --- !u!1001 &1386410394
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -444,7 +419,7 @@ PrefabInstance:
     - target: {fileID: 1817123379048467086, guid: 9419ada406b365b43a33cbd73bdda640, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 117157510}
+      objectReference: {fileID: 51884664}
     - target: {fileID: 1817123379048467086, guid: 9419ada406b365b43a33cbd73bdda640, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: HandleRaccoonissanceButtonOnClickEvent
@@ -464,7 +439,7 @@ PrefabInstance:
     - target: {fileID: 5215993985166166941, guid: 9419ada406b365b43a33cbd73bdda640, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 907956346}
+      objectReference: {fileID: 51884664}
     - target: {fileID: 5215993985166166941, guid: 9419ada406b365b43a33cbd73bdda640, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: HandleMainMenuButtonOnClickEvent
