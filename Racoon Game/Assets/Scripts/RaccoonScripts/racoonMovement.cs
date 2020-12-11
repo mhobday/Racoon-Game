@@ -222,6 +222,7 @@ public class racoonMovement : MonoBehaviour
         heldItem.GetComponent<cakeslice.Outline>().eraseRenderer = false;
         heldItem.transform.parent = null;
         heldItem.transform.localScale = heldItem.transform.localScale * heldItem.GetComponent<grabbableItem>().holdScale;
+        heldItem = null;
         holdingItem = false;
     }
 
