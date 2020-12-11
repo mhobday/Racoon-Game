@@ -13534,7 +13534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brick: {fileID: 3918485888168472121, guid: 6eff1a2ffab629d48aab2eba01fd0ff2, type: 3}
   sleepDart: {fileID: 5793259746597775675, guid: b8b0fb1ba35b76946b16c10d3e651347, type: 3}
-  box: {fileID: 6159165792878251698, guid: 3a981d854be662046a5eb44efbc89939, type: 3}
+  box: {fileID: 8009608981312189909, guid: 3a981d854be662046a5eb44efbc89939, type: 3}
 --- !u!4 &572952355
 Transform:
   m_ObjectHideFlags: 0
@@ -43170,11 +43170,11 @@ PrefabInstance:
       objectReference: {fileID: 871297013}
     - target: {fileID: 1322572181528729075, guid: 203d88ad09ec35343816f2ed2e189888, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000017168505
+      value: 0.000000017168505
       objectReference: {fileID: 0}
     - target: {fileID: 1322572181528729075, guid: 203d88ad09ec35343816f2ed2e189888, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000011410591
+      value: -0.0000000011410591
       objectReference: {fileID: 0}
     - target: {fileID: 1322572181528729075, guid: 203d88ad09ec35343816f2ed2e189888, type: 3}
       propertyPath: m_LocalRotation.x
