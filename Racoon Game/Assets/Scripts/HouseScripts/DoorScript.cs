@@ -20,10 +20,10 @@ public class DoorScript : MonoBehaviour
         this.position = this.gameObject.transform.position;
         this.gameObject.tag = "Door";
         this.locked = false;
-        this.isOpen = true;
+        this.isOpen = false;
         this.isOpening = false;
         this.isClosing = false;
-        this.Close();
+        // this.Close();
     }
 
     // Update is called once per frame
