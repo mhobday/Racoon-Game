@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 using UnityEngine.Video;
 
@@ -33,6 +34,8 @@ public class racoonMovement : MonoBehaviour
     public bool holdingItem = false;
     //Current held item
     public GameObject heldItem;
+    //Text displaying current item
+    public Text itemText;
     //Location of the Raccoon's head
     private GameObject head;
     //Index of the purchased item that is currently selected by the user.
@@ -151,12 +154,14 @@ public class racoonMovement : MonoBehaviour
         if (Input.GetAxis("Mouse ScrollWheel") > 0 && purchasedItems.Length > 0) {
             selectedPurchasedItem = (selectedPurchasedItem + 1) % purchasedItems.Length;
             Debug.Log(purchasedItems[selectedPurchasedItem].GetType().Name);
+            itemText.text = purchasedItems[selectedPurchasedItem].GetType().Name;
         }
 
         //Swap item down
         if (Input.GetAxis("Mouse ScrollWheel") < 0 && purchasedItems.Length > 0) {
             selectedPurchasedItem = (selectedPurchasedItem + purchasedItems.Length - 1) % purchasedItems.Length;
             Debug.Log(purchasedItems[selectedPurchasedItem].GetType().Name);
+            itemText.text = purchasedItems[selectedPurchasedItem].GetType().Name;
         }
 
         //Hehe
