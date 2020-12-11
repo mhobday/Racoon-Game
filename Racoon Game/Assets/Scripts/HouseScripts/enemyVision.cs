@@ -67,23 +67,18 @@ public class enemyVision : MonoBehaviour
 
         if(other.gameObject == player)
         {
-            Debug.Log("basics");
             Vector3 direction = other.transform.position - enemyPosition;
             float angle = Vector3.Angle(direction, transform.forward);
             if(Vector3.Distance(enemyPosition, playerPosition) < 5)
             {
-                Debug.Log("Basics");
+                
                 seenRecently = true;
                 playerInSight = false;
                 RaycastHit hit;
-                Debug.DrawRay(enemyPosition, direction * 500, Color.white, 0.1f);
                 if(Physics.Raycast(enemyPosition, direction, out hit, col.radius, invisibleLayer))
                 {
-                    Debug.Log(hit.collider.gameObject.name);
-                    Debug.Log(this.gameObject.transform.position + transform.up);
                     if(hit.collider.gameObject == player)
                     {
-                        Debug.Log("Why");
                         playerInSight = true;
                         lastKnownPosition = player.transform.position;
                         move.tracking = true;
@@ -96,7 +91,6 @@ public class enemyVision : MonoBehaviour
                 seenRecently = true;
                 playerInSight = false;
                 RaycastHit hit;
-                Debug.DrawRay(enemyPosition, direction.normalized, Color.white, 0.1f);
                 if(Physics.Raycast(enemyPosition, direction.normalized, out hit, col.radius, invisibleLayer))
                 {
                     if(hit.collider.gameObject == player)
@@ -111,7 +105,6 @@ public class enemyVision : MonoBehaviour
             else if(Vector3.Distance(enemyPosition, playerPosition) < 10 && seenRecently){
                 playerInSight = false;
                 RaycastHit hit;
-                Debug.DrawRay(enemyPosition, direction.normalized, Color.white, 1f);
                 if(Physics.Raycast(enemyPosition, direction.normalized, out hit, col.radius, invisibleLayer))
                 {
                     if(hit.collider.gameObject == player)

@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour
 {
 
     private bool waiting = false;
-    private float timer = 0;
+    private float timer = 5;
 
     private bool move = false;
 
@@ -20,7 +20,7 @@ public class EnemyMovement : MonoBehaviour
 
     public bool tracking = false;
 
-    private Vector3 last;
+    private Vector3 last = new Vector3(0,0,0);
 
     public float turnRate = 1000;
 
@@ -47,6 +47,7 @@ public class EnemyMovement : MonoBehaviour
             if(this.gameObject.transform.position == last && !move)
             {
                 waiting = true;
+                this.gameObject.GetComponent<Animator>().SetBool("Waiting", true);
             }
             else if(!destination)
             {
@@ -69,7 +70,6 @@ public class EnemyMovement : MonoBehaviour
             else
             {
                 timer += Time.deltaTime;
-                this.gameObject.GetComponent<Animator>().SetBool("Waiting", true);
             }
         }
         else if(looking)
