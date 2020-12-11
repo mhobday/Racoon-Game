@@ -8,7 +8,7 @@ public class SellItem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -33,6 +33,7 @@ public class SellItem : MonoBehaviour
             //SaveLoad.currentData.dollars += 10;
             //SaveLoad.currentData.totalDollars += 10;
         }
-        MenuLoader.GoToMenu(MenuName.Main); 
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MouseLock>().Unlock();
+        MenuLoader.GoToMenu(MenuName.Shop);
     }
 }

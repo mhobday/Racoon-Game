@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System;
- 
+
 public class SaveLoad : MonoBehaviour
 {
     public static DataPersistance currentData = new DataPersistance();
@@ -14,13 +14,13 @@ public class SaveLoad : MonoBehaviour
     {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream fs = File.Create(Application.persistentDataPath + "/DataPersistance.dat");
- 
+
         DataPersistance data = currentData;
- 
+
         bf.Serialize(fs, data);
         fs.Close();
     }
- 
+
     public static void Load()
     {
         if (File.Exists(Application.persistentDataPath + "/DataPersistance.dat"))
@@ -30,7 +30,7 @@ public class SaveLoad : MonoBehaviour
                 FileStream fs = File.Open(Application.persistentDataPath + "/DataPersistance.dat", FileMode.Open);
                 DataPersistance data = bf.Deserialize(fs) as DataPersistance;
                 fs.Close();
-    
+
                 if (data != null)
                 {
                     currentData = data;
@@ -51,7 +51,7 @@ public class SaveLoad : MonoBehaviour
         }
         currentData = new DataPersistance();
         setData();
-        
+
     }
 
     public static void setData()
