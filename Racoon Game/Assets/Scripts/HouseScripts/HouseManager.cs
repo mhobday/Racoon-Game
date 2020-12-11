@@ -9,7 +9,7 @@ public class HouseManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public List<GameObject> windows;
-    public List<GameObject> doors; 
+    public List<GameObject> doors;
 
     public List<GameObject> enemies;
     void Start()
@@ -28,16 +28,16 @@ public class HouseManager : MonoBehaviour
             }
         }
 
-        if(totalDollars > 300){    
+        if(totalDollars > 300){
             foreach(GameObject door in doors)
             {
                 DoorScript d = door.GetComponent(typeof(DoorScript)) as DoorScript;
                 d.locked = true;
             }
-        }    
+        }
 
 
-            
+
 
     }
 }

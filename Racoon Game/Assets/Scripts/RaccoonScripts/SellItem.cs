@@ -25,6 +25,7 @@ public class SellItem : MonoBehaviour
         if(gameObject.GetComponent<racoonMovement>().holdingItem)
         {
             SaveLoad.currentData.dollars += gameObject.GetComponent<racoonMovement>().heldItem.GetComponent<grabbableItem>().cost;
+            Debug.Log(SaveLoad.currentData.dollars);
             Destroy(gameObject.GetComponent<racoonMovement>().heldItem);
             gameObject.GetComponent<racoonMovement>().holdingItem = false;
         }

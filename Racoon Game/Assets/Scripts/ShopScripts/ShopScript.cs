@@ -18,13 +18,18 @@ public class ShopScript : MonoBehaviour
 
     public static List<ItemName> itemsPurchased = new List<ItemName>();
 
+    private static bool isLoaded = false;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
         dollars = GameObject.Find("Dollars").GetComponent<Text>();
-        SaveLoad.Load();
+        if (!ShopScript.isLoaded) {
+            SaveLoad.Load();
+            ShopScript.isLoaded = true;
+        }
         //SaveLoad.testData();
         dollars.text = "$" + SaveLoad.currentData.dollars;
         shop = GameObject.Find("Content");
