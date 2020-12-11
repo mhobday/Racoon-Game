@@ -64,6 +64,7 @@ public class DataPersistance
 
     public void clearData()
     {
+        itemsForSale = new List<shopItem>();
         dollars = 0;
         totalDollars = 0;
     }
